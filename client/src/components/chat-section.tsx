@@ -77,19 +77,19 @@ export default function ChatSection() {
   };
 
   const examplePrompts = [
-    "ما هي أفضل مطاعم المأكولات البحرية في بورسعيد؟",
-    "أخبرني عن حديقة فريال",
-    "ما هي المواقع التاريخية التي يجب زيارتها؟",
-    "ضع لي برنامج يومين في بورسعيد"
+    "إيه أحسن مطاعم سمك في بورسعيد؟",
+    "عرفني على حديقة فريال",
+    "أي الأماكن التاريخية اللي لازم أزورها؟",
+    "عملي برنامج يومين في بورسعيد"
   ];
 
   return (
     <section id="chat" className="py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">ابدأ المحادثة مع إيجي سفاري AI</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">يلا نتكلم مع إيجي سفاري AI</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            اكتب سؤالك أدناه ودع ذكاؤنا الاصطناعي يرشدك عبر عجائب بورسعيد.
+            اكتب سؤالك هنا تحت وخلي الذكاء الاصطناعي يوديك في أحلى أماكن بورسعيد.
           </p>
         </div>
         
@@ -103,7 +103,7 @@ export default function ChatSection() {
               </div>
               <div>
                 <h3 className="font-semibold">مساعد إيجي سفاري AI</h3>
-                <p className="text-sm text-primary-foreground/80">متصل • جاهز للمساعدة</p>
+                <p className="text-sm text-primary-foreground/80">موجود • جاهز أساعدك</p>
               </div>
             </div>
             <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
