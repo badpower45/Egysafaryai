@@ -16,7 +16,7 @@ export default function ChatSection() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      content: "Hello! I'm your Egy Safary AI assistant. I'm here to help you discover the best of Port Said. What would you like to know?",
+      content: "مرحباً! أنا مساعدك إيجي سفاري AI. أنا هنا لمساعدتك في اكتشاف أفضل ما في بورسعيد. ماذا تريد أن تعرف؟",
       timestamp: Date.now()
     }
   ]);
@@ -77,19 +77,19 @@ export default function ChatSection() {
   };
 
   const examplePrompts = [
-    "What are the best seafood restaurants in Port Said?",
-    "Tell me about Ferial Park",
-    "What historical sites should I visit?",
-    "Plan a 2-day itinerary for Port Said"
+    "ما هي أفضل مطاعم المأكولات البحرية في بورسعيد؟",
+    "أخبرني عن حديقة فريال",
+    "ما هي المواقع التاريخية التي يجب زيارتها؟",
+    "ضع لي برنامج يومين في بورسعيد"
   ];
 
   return (
     <section id="chat" className="py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Start Chatting with Egy Safary AI</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">ابدأ المحادثة مع إيجي سفاري AI</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Type your question below and let our AI guide you through the wonders of Port Said.
+            اكتب سؤالك أدناه ودع ذكاؤنا الاصطناعي يرشدك عبر عجائب بورسعيد.
           </p>
         </div>
         
@@ -102,8 +102,8 @@ export default function ChatSection() {
                 <Bot className="text-lg" size={20} />
               </div>
               <div>
-                <h3 className="font-semibold">Egy Safary AI Assistant</h3>
-                <p className="text-sm text-primary-foreground/80">Online • Ready to help</p>
+                <h3 className="font-semibold">مساعد إيجي سفاري AI</h3>
+                <p className="text-sm text-primary-foreground/80">متصل • جاهز للمساعدة</p>
               </div>
             </div>
             <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
@@ -141,7 +141,7 @@ export default function ChatSection() {
                   <Bot className="text-primary text-sm" size={16} />
                 </div>
                 <div className="bg-muted rounded-lg px-4 py-3">
-                  <p className="text-sm">AI is typing...</p>
+                  <p className="text-sm">يكتب الذكاء الاصطناعي...</p>
                 </div>
               </div>
             )}
@@ -150,7 +150,7 @@ export default function ChatSection() {
           
           {/* Example Prompts */}
           <div className="px-6 py-4 bg-muted/50 border-t border-border">
-            <p className="text-sm text-muted-foreground mb-3">Try asking about:</p>
+            <p className="text-sm text-muted-foreground mb-3">جرب أن تسأل عن:</p>
             <div className="flex flex-wrap gap-2">
               {examplePrompts.map((prompt, index) => (
                 <Button
@@ -180,7 +180,7 @@ export default function ChatSection() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-                placeholder="Ask me anything about Port Said..."
+                placeholder="اسألني أي شيء عن بورسعيد..."
                 className="flex-1"
                 disabled={chatMutation.isPending}
                 data-testid="input-chat-message"
@@ -191,7 +191,7 @@ export default function ChatSection() {
                 className="px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2"
                 data-testid="button-send-message"
               >
-                <span>Send</span>
+                <span>إرسال</span>
                 <Send className="text-sm" size={16} />
               </Button>
             </div>
@@ -201,7 +201,7 @@ export default function ChatSection() {
         {/* Chat Disclaimer */}
         <p className="text-sm text-muted-foreground text-center mt-4 flex items-center justify-center">
           <Shield className="mr-1" size={16} />
-          All conversations are handled securely and confidentially. Our AI provides information and recommendations only.
+          جميع المحادثات يتم التعامل معها بأمان وسرية. ذكاؤنا الاصطناعي يقدم المعلومات والتوصيات فقط.
         </p>
       </div>
     </section>

@@ -4,18 +4,18 @@ export default function TechnologySection() {
   const technologies = [
     {
       icon: Brain,
-      title: "Google Gemini Technology",
-      description: "Our AI leverages Google's most advanced Gemini technology to understand natural language and provide human-like conversations about your travel needs."
+      title: "تقنية Google Gemini",
+      description: "يستخدم ذكاؤنا الاصطناعي أحدث تقنيات Gemini من جوجل لفهم اللغة الطبيعية وتقديم محادثات شبيهة بالبشر حول احتياجات السفر الخاصة بك."
     },
     {
       icon: Database,
-      title: "Comprehensive Knowledge Base",
-      description: "Processing vast amounts of information about Port Said, from historical landmarks to modern attractions, restaurants, and local culture."
+      title: "قاعدة معرفة شاملة",
+      description: "معالجة كميات هائلة من المعلومات حول بورسعيد، من المعالم التاريخية إلى المعالم الحديثة والمطاعم والثقافة المحلية."
     },
     {
       icon: RefreshCw,
-      title: "Continuous Learning",
-      description: "The AI continuously improves through interactions, ensuring more accurate and relevant responses for future travelers."
+      title: "تعلم مستمر",
+      description: "يتحسن الذكاء الاصطناعي باستمرار من خلال التفاعلات، مما يضمن استجابات أكثر دقة وأهمية للمسافرين في المستقبل."
     }
   ];
 
@@ -24,7 +24,7 @@ export default function TechnologySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">The Intelligence Behind Your Journey</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8">الذكاء وراء رحلتك</h2>
             <div className="space-y-6">
               {technologies.map((tech, index) => {
                 const IconComponent = tech.icon;

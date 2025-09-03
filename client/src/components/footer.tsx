@@ -2,17 +2,17 @@ import { Compass, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export default function Footer() {
   const quickLinks = [
-    { name: "Features", id: "features" },
-    { name: "Technology", id: "technology" },
-    { name: "Chat with AI", id: "chat" },
-    { name: "FAQ", id: "faq" }
+    { name: "الميزات", id: "features" },
+    { name: "التقنية", id: "technology" },
+    { name: "محادثة مع الذكاء الاصطناعي", id: "chat" },
+    { name: "أسئلة شائعة", id: "faq" }
   ];
 
   const supportLinks = [
-    { name: "Main Website", url: "https://egy-safary.odoo.com", external: true },
-    { name: "Contact Us", url: "#", external: false },
-    { name: "Privacy Policy", url: "#", external: false },
-    { name: "Terms of Service", url: "#", external: false }
+    { name: "الموقع الرئيسي", url: "https://egy-safary.odoo.com", external: true },
+    { name: "اتصل بنا", url: "#", external: false },
+    { name: "سياسة الخصوصية", url: "#", external: false },
+    { name: "شروط الخدمة", url: "#", external: false }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -32,7 +32,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Egy Safary AI</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Your intelligent travel companion for discovering the wonders of Port Said, Egypt. Powered by advanced AI technology for personalized travel experiences.
+              رفيقك الذكي للسفر لاكتشاف عجائب بورسعيد، مصر. مدعوم بتقنية ذكية متقدمة لتجارب سفر شخصية.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="social-facebook">
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">روابط سريعة</h3>
             <ul className="space-y-2 text-muted-foreground">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Support</h3>
+            <h3 className="font-semibold mb-4">الدعم</h3>
             <ul className="space-y-2 text-muted-foreground">
               {supportLinks.map((link, index) => (
                 <li key={index}>
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 Egy Safary AI. All rights reserved. Powered by Google Gemini AI.</p>
+          <p>&copy; 2024 إيجي سفاري AI. جميع الحقوق محفوظة. مدعوم بـ Google Gemini AI.</p>
         </div>
       </div>
     </footer>

@@ -22,28 +22,28 @@ export default function Navigation() {
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="nav-features"
             >
-              Features
+              الميزات
             </button>
             <button
               onClick={() => scrollToSection('technology')}
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="nav-technology"
             >
-              Technology
+              التقنية
             </button>
             <button
               onClick={() => scrollToSection('chat')}
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="nav-chat"
             >
-              Chat
+              محادثة
             </button>
             <button
               onClick={() => scrollToSection('faq')}
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="nav-faq"
             >
-              FAQ
+              أسئلة شائعة
             </button>
           </div>
         </div>

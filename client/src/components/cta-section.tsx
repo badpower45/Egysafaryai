@@ -10,17 +10,17 @@ export default function CTASection() {
   };
 
   const stats = [
-    { value: "10,000+", label: "Happy Travelers" },
-    { value: "50+", label: "Tour Options" },
-    { value: "24/7", label: "AI Support" }
+    { value: "10,000+", label: "مسافر سعيد" },
+    { value: "50+", label: "خيارات جولات" },
+    { value: "24/7", label: "دعم ذكي" }
   ];
 
   return (
     <section className="py-20 gradient-bg text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Explore Port Said?</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">جاهز لاستكشاف بورسعيد؟</h2>
         <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-          While our AI is here to assist with information and recommendations, don't forget to explore the full range of tours, places, and packages available on the main Egy Safary website.
+          بينما ذكاؤنا الاصطناعي هنا لمساعدتك بالمعلومات والتوصيات، لا تنس استكشاف المجموعة الكاملة من الجولات والأماكن والباقات المتاحة في موقع إيجي سفاري الرئيسي.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Button
@@ -34,7 +34,7 @@ export default function CTASection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center space-x-2"
             >
-              <span>Visit Egy Safary Website</span>
+              <span>زر موقع إيجي سفاري</span>
               <ExternalLink size={18} />
             </a>
           </Button>
@@ -44,7 +44,7 @@ export default function CTASection() {
             className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all"
             data-testid="button-chat-again"
           >
-            <span>Chat with AI Again</span>
+            <span>تحدث مع الذكاء الاصطناعي مرة أخرى</span>
             <MessageCircle className="ml-2" size={18} />
           </Button>
         </div>

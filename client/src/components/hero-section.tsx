@@ -13,14 +13,14 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Meet Your Personal Travel Assistant: 
-            <span className="text-secondary"> Egy Safary AI</span>
+            تعرف على مساعدك الشخصي للسفر: 
+            <span className="text-secondary"> إيجي سفاري AI</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Powered by advanced Gemini AI, your journey through Port Said just got smarter.
+            مدعوم بتقنية Gemini AI المتطورة، رحلتك عبر بورسعيد أصبحت أذكى.
           </p>
           <p className="text-lg mb-10 text-white/80 max-w-2xl mx-auto">
-            Discover Port Said like never before with your intelligent travel companion. Get personalized recommendations, instant answers, and expert guidance for an unforgettable Egyptian adventure.
+            اكتشف بورسعيد كما لم ترها من قبل مع رفيقك الذكي للسفر. احصل على توصيات شخصية وإجابات فورية وإرشادات خبيرة لمغامرة مصرية لا تُنسى.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -28,7 +28,7 @@ export default function HeroSection() {
               className="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg"
               data-testid="button-start-chat"
             >
-              Start Chatting Now
+              ابدأ المحادثة الآن
             </Button>
             <Button
               onClick={() => scrollToSection('features')}
@@ -36,7 +36,7 @@ export default function HeroSection() {
               className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all"
               data-testid="button-learn-more"
             >
-              Learn More
+              اعرف أكثر
             </Button>
           </div>
         </div>

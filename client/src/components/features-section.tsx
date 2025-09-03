@@ -4,33 +4,33 @@ export default function FeaturesSection() {
   const features = [
     {
       icon: Heart,
-      title: "Personalized Recommendations",
-      description: "Get tailored suggestions for restaurants, attractions, and activities based on your preferences, budget, and travel style."
+      title: "توصيات شخصية",
+      description: "احصل على اقتراحات مُخصصة للمطاعم والمعالم والأنشطة بناءً على تفضيلاتك وميزانيتك وأسلوب سفرك."
     },
     {
       icon: Zap,
-      title: "Instant Information",
-      description: "Ask any question about Port Said – from historical facts to local tips – and get immediate, accurate answers."
+      title: "معلومات فورية",
+      description: "اسأل أي سؤال عن بورسعيد - من الحقائق التاريخية إلى النصائح المحلية - واحصل على إجابات فورية ودقيقة."
     },
     {
       icon: Route,
-      title: "Trip Planning Assistance",
-      description: "Receive expert help in organizing your itinerary, finding the best routes, and discovering hidden gems."
+      title: "مساعدة في تخطيط الرحلة",
+      description: "احصل على مساعدة خبيرة في تنظيم برنامجك، وإيجاد أفضل المسارات، واكتشاف الكنوز المخفية."
     },
     {
       icon: Clock,
-      title: "24/7 Support",
-      description: "Our AI is always available to assist you, anytime, anywhere – your travel companion never sleeps."
+      title: "دعم 24/7",
+      description: "ذكاؤنا الاصطناعي متاح دائماً لمساعدتك، في أي وقت وأي مكان - رفيق سفرك لا ينام أبداً."
     },
     {
       icon: Globe,
-      title: "Multilingual Support",
-      description: "Interact with the AI in multiple languages for a seamless experience, no matter where you're from."
+      title: "دعم متعدد اللغات",
+      description: "تفاعل مع الذكاء الاصطناعي بلغات متعددة للحصول على تجربة سلسة، بغض النظر عن البلد الذي تأتي منه."
     },
     {
       icon: MapPin,
-      title: "Local Expertise",
-      description: "Access insider knowledge about Port Said's culture, customs, and must-visit locations from local experts."
+      title: "خبرة محلية",
+      description: "احصل على معرفة داخلية حول ثقافة بورسعيد وعاداتها والأماكن التي يجب زيارتها من خبراء محليين."
     }
   ];
 
@@ -38,9 +38,9 @@ export default function FeaturesSection() {
     <section id="features" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">How Can Egy Safary AI Help You?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">كيف يمكن لـ إيجي سفاري AI مساعدتك؟</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Unlock the full potential of your Port Said adventure with AI-powered assistance tailored to your needs.
+            اطلق العنان لكامل إمكانيات مغامرتك في بورسعيد مع المساعدة المدعومة بالذكاء الاصطناعي والمصممة خصيصاً لاحتياجاتك.
           </p>
         </div>
         
