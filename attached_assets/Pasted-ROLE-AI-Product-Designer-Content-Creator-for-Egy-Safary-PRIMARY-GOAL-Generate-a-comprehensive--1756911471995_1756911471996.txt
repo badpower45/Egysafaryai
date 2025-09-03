@@ -1,0 +1,148 @@
+ROLE: AI Product Designer & Content Creator for Egy Safary
+
+PRIMARY GOAL:
+
+Generate a comprehensive and interactive web page that explains the purpose and functionalities of Egy Safary's AI, and integrates a functional chat interface powered by the provided Gemini API key. The page should be informative, user-friendly, and encourage interaction with the AI.
+
+TARGET AUDIENCE:
+
+Existing and potential customers of Egy Safary, looking for travel information, assistance, and personalized recommendations. The tone should be helpful, engaging, and professional.
+
+WEBPAGE STRUCTURE & CONTENT REQUIREMENTS:
+
+[SECTION 1: HERO - Introduction to Egy Safary AI]
+
+•
+(Format: Clean, modern hero section with a compelling headline and a brief, inviting description.)
+
+•
+HEADLINE: "Meet Your Personal Travel Assistant: Egy Safary AI"
+
+•
+SUB-HEADLINE: "Powered by advanced Gemini AI, your journey through Port Said just got smarter."
+
+•
+BODY: A short paragraph introducing the AI as a helpful tool for planning trips, answering questions about Port Said, and providing instant support.
+
+[SECTION 2: WHAT CAN EGY SAFARY AI DO? - Features & Benefits]
+
+•
+(Format: A visually appealing section using icons or small illustrations, with concise bullet points or short paragraphs for each feature.)
+
+•
+HEADLINE: "How Can Egy Safary AI Help You?"
+
+•
+BODY: (List 3-5 key functionalities with brief explanations)
+
+•
+Personalized Recommendations: "Get tailored suggestions for restaurants, attractions, and activities based on your preferences."
+
+•
+Instant Information: "Ask any question about Port Said – from historical facts to local tips – and get immediate answers."
+
+•
+Trip Planning Assistance: "Receive help in organizing your itinerary, finding the best routes, and discovering hidden gems."
+
+•
+24/7 Support: "Our AI is always available to assist you, anytime, anywhere."
+
+•
+Multilingual Support: "Interact with the AI in multiple languages for a seamless experience."
+
+
+
+[SECTION 3: HOW IT WORKS - The Technology Behind Our AI]
+
+•
+(Format: A simple, easy-to-understand explanation of the AI's technology, avoiding overly technical jargon. Could use a simple diagram or flow chart.)
+
+•
+HEADLINE: "The Intelligence Behind Your Journey"
+
+•
+BODY: Explain that the AI leverages Google's Gemini technology to understand natural language, process vast amounts of information about Port Said, and provide accurate, relevant responses. Mention its continuous learning capabilities.
+
+[SECTION 4: INTERACT WITH EGY SAFARY AI - The Chat Interface]
+
+•
+(Format: This section MUST prominently feature the AI chat interface. It should be intuitive and easy to use.)
+
+•
+HEADLINE: "Start Chatting with Egy Safary AI"
+
+•
+BODY: A brief instruction on how to use the chat, e.g., "Type your question below and let our AI guide you."
+
+•
+INTEGRATION REQUIREMENT: Integrate a chat widget/interface that connects to the Gemini API. The API key for this is AIzaSyAwerw8ya9G6jdUwx8rRDluz9GQfkLENw8. The chat interface should include:
+
+•
+An input field for user queries.
+
+•
+A display area for chat history (user questions and AI responses).
+
+•
+A send button.
+
+•
+(Optional but preferred) A few example prompts to guide the user (e.g., "What are the best seafood restaurants in Port Said?", "Tell me about Ferial Park.").
+
+
+
+[SECTION 5: FAQ - Common Questions About the AI]
+
+•
+(Format: A simple accordion or Q&A list.)
+
+•
+HEADLINE: "Frequently Asked Questions About Egy Safary AI"
+
+•
+BODY: (Include 3-5 common questions and answers)
+
+•
+Q: "Is the AI available 24/7?" A: "Yes, our AI assistant is available around the clock to help you."
+
+•
+Q: "Can the AI book tours for me?" A: "Currently, the AI provides information and recommendations. For booking, it will direct you to the relevant section of our website."
+
+•
+Q: "Is my conversation with the AI private?" A: "We prioritize your privacy. All interactions are handled securely and confidentially."
+
+
+
+[SECTION 6: CALL TO ACTION - Explore More]
+
+•
+(Format: A concluding section encouraging users to explore the main Egy Safary website.)
+
+•
+HEADLINE: "Ready to Explore Port Said?"
+
+•
+BODY: "While our AI is here to assist, don't forget to explore the full range of tours, places, and packages available on the main Egy Safary website."
+
+•
+CTA: "Visit Egy Safary Website" (Button linking to https://egy-safary.odoo.com)
+
+DESIGN & TECHNICAL CONSIDERATIONS FOR GOOGLE AI STUDIO:
+
+•
+Layout: Modern, clean, and responsive design, optimized for both desktop and mobile viewing.
+
+•
+Styling: Use a color palette consistent with Egy Safary's branding (e.g., blues, greens, and sandy tones). Clear typography for readability.
+
+•
+Interactivity: Ensure the chat interface is highly interactive and provides a smooth user experience.
+
+•
+API Integration: The prompt should guide the AI Studio to understand that the chat functionality needs to be built using the provided Gemini API key. It should simulate a basic chat interaction.
+
+•
+Error Handling (Basic): Suggest basic error handling for the chat (e.g., a message if the AI cannot understand a query).
+
+This prompt aims to create a functional and informative webpage that showcases Egy Safary's commitment to leveraging AI for an enhanced customer experience. The focus is on clarity, usability, and direct interaction with the AI assistant.
+

@@ -1,0 +1,61 @@
+# Egy Safary Partnerships Datasheet
+
+## Restaurants
+
+| Category      | Name            |
+|---------------|-----------------|
+| Sea Food      | Asmak City      |
+| Sea Food      | elbalady yokal  |
+| Sea Food      | Beta3 samak     |
+| Sea Food      | Ibn Hamidou     |
+| Sea Food      | kings of fish   |
+| Sea Food      | Porto Fish      |
+| Oriant Food   | Rashed Elsoury  |
+| Oriant Food   | City Crepe      |
+| Oriant Food   | Pizza Roka      |
+| Pastry        | Tamer el Osta   |
+| Pastry        | Abdo Salem      |
+
+
+
+
+
+## Stores
+
+| Category      | Name            | Rating | Location   |
+|---------------|-----------------|--------|------------|
+| Men's Stores  | Top Jeans       | 4.8    | Port Said  |
+| Men's Stores  | Abu Alaa Active | 4.5    | Port Said  |
+| Women's Stores| Nuts Jeans      | 4.6    | Port Said  |
+| Women's Stores| Bondok Jeans    | 4.7    | Port Said  |
+| Women's Stores| Top Girl        | 4.7    | Port Said  |
+| Women's Stores| Deja Store      | 4.5    | Port Said  |
+
+
+
+
+
+
+
+
+## Places
+
+| Category                             | Name                               |
+|--------------------------------------|------------------------------------|
+| Historical and Archaeological Landmarks | The Old Lighthouse                 |
+| Historical and Archaeological Landmarks | The Statue of Ferdinand de Lesseps |
+| Historical and Archaeological Landmarks | Misr Square                        |
+| Historical and Archaeological Landmarks | Simon Arzt                         |
+| Historical and Archaeological Landmarks | The Italian House                  |
+| Historical and Archaeological Landmarks | The Italian Consulate              |
+| Religious Sites                      | The Abbasi Mosque                  |
+| Beach                                | Beach                              |
+| Parks and Gardens                    | Feryal Garden                      |
+| Parks and Gardens                    | History Garden                     |
+| Parks and Gardens                    | Al Montazah Garden                 |
+| Parks and Gardens                    | Al Garaj Mall                      |
+| Parks and Gardens                    | Port Said Corniche                 |
+| Museum                               | Port Said Military Museum          |
+
+
+
