@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egy Safary AI - Your Personal Travel Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    border: "var(--border)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["var(--font-sans)"],
+                }
+            },
+        }
+    };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --background: hsl(210 20% 98%);
+            --foreground: hsl(222 47% 11%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222 47% 11%);
+            --primary: hsl(200 91% 48%);
+            --primary-foreground: hsl(0 0% 100%);
+            --secondary: hsl(39 77% 88%);
+            --secondary-foreground: hsl(39 77% 18%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215 16% 47%);
+            --accent: hsl(142 76% 36%);
+            --accent-foreground: hsl(0 0% 100%);
+            --border: hsl(214 32% 91%);
+            --ring: hsl(200 91% 48%);
+            --radius: 0.5rem;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .dark {
+            --background: hsl(222 84% 5%);
+            --foreground: hsl(213 31% 91%);
+            --card: hsl(222 84% 5%);
+            --card-foreground: hsl(213 31% 91%);
+            --primary: hsl(200 91% 48%);
+            --primary-foreground: hsl(0 0% 100%);
+            --secondary: hsl(39 77% 18%);
+            --secondary-foreground: hsl(39 77% 88%);
+            --muted: hsl(217 32% 17%);
+            --muted-foreground: hsl(215 20% 65%);
+            --accent: hsl(142 76% 36%);
+            --accent-foreground: hsl(0 0% 100%);
+            --border: hsl(217 32% 17%);
+            --ring: hsl(200 91% 48%);
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--background);
+            color: var(--foreground);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, hsl(200 91% 48%) 0%, hsl(142 76% 36%) 100%);
+        }
+        
+        .chat-message {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .typing-indicator {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground">
+    <!-- Navigation -->
+    <nav class="bg-card/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-compass text-2xl text-primary mr-3"></i>
+                    <span class="text-xl font-bold">Egy Safary AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-muted-foreground hover:text-primary transition-colors">Features</a>
+                    <a href="#technology" class="text-muted-foreground hover:text-primary transition-colors">Technology</a>
+                    <a href="#chat" class="text-muted-foreground hover:text-primary transition-colors">Chat</a>
+                    <a href="#faq" class="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Meet Your Personal Travel Assistant: 
+                    <span class="text-secondary">Egy Safary AI</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+                    Powered by advanced Gemini AI, your journey through Port Said just got smarter.
+                </p>
+                <p class="text-lg mb-10 text-white/80 max-w-2xl mx-auto">
+                    Discover Port Said like never before with your intelligent travel companion. Get personalized recommendations, instant answers, and expert guidance for an unforgettable Egyptian adventure.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#chat" class="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg">
+                        Start Chatting Now
+                    </a>
+                    <a href="#features" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Port Said waterfront image -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://pixabay.com/get/g221f0c87ee6b67ffc9ff09edfc796aa7e14f046ff31467dd288cc892dd8f301a605b374865b05c4d49b6ae293e2641936a1c318cd95a471e2a9930b1c2e984f9_1280.jpg" alt="Port Said waterfront" class="w-full h-full object-cover" />
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-muted/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">How Can Egy Safary AI Help You?</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Unlock the full potential of your Port Said adventure with AI-powered assistance tailored to your needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Personalized Recommendations</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Get tailored suggestions for restaurants, attractions, and activities based on your preferences, budget, and travel style.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Instant Information</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Ask any question about Port Said – from historical facts to local tips – and get immediate, accurate answers.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-2xl text-secondary-foreground"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Trip Planning Assistance</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Receive expert help in organizing your itinerary, finding the best routes, and discovering hidden gems.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-clock text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">24/7 Support</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Our AI is always available to assist you, anytime, anywhere – your travel companion never sleeps.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Multilingual Support</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Interact with the AI in multiple languages for a seamless experience, no matter where you're from.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-border">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marked-alt text-2xl text-secondary-foreground"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Local Expertise</h3>
+                    <p class="text-muted-foreground leading-relaxed">
+                        Access insider knowledge about Port Said's culture, customs, and must-visit locations from local experts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8">The Intelligence Behind Your Journey</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-brain text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Google Gemini Technology</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Our AI leverages Google's most advanced Gemini technology to understand natural language and provide human-like conversations about your travel needs.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-database text-accent text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Comprehensive Knowledge Base</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Processing vast amounts of information about Port Said, from historical landmarks to modern attractions, restaurants, and local culture.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-secondary/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-sync-alt text-secondary-foreground text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Continuous Learning</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    The AI continuously improves through interactions, ensuring more accurate and relevant responses for future travelers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Abstract representation of AI technology -->
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="AI technology visualization" class="rounded-2xl shadow-2xl w-full" />
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Interface Section -->
+    <section id="chat" class="py-20 bg-muted/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Start Chatting with Egy Safary AI</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Type your question below and let our AI guide you through the wonders of Port Said.
+                </p>
+            </div>
+            
+            <!-- Chat Interface -->
+            <div class="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
+                <!-- Chat Header -->
+                <div class="bg-primary text-primary-foreground px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-robot text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Egy Safary AI Assistant</h3>
+                            <p class="text-sm text-primary-foreground/80">Online • Ready to help</p>
+                        </div>
+                    </div>
+                    <div class="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                </div>
+                
+                <!-- Chat Messages Area -->
+                <div id="chatMessages" class="h-96 overflow-y-auto p-6 space-y-4" data-mock="true">
+                    <!-- Welcome message -->
+                    <div class="chat-message flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-robot text-primary text-sm"></i>
+                        </div>
+                        <div class="bg-muted rounded-lg px-4 py-3 max-w-xs">
+                            <p class="text-sm">Hello! I'm your Egy Safary AI assistant. I'm here to help you discover the best of Port Said. What would you like to know?</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Example user message -->
+                    <div class="chat-message flex items-start space-x-3 justify-end" data-mock="true">
+                        <div class="bg-primary text-primary-foreground rounded-lg px-4 py-3 max-w-xs">
+                            <p class="text-sm">What are the best seafood restaurants in Port Said?</p>
+                        </div>
+                        <div class="w-8 h-8 bg-secondary/30 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user text-secondary-foreground text-sm"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Example AI response -->
+                    <div class="chat-message flex items-start space-x-3" data-mock="true">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-robot text-primary text-sm"></i>
+                        </div>
+                        <div class="bg-muted rounded-lg px-4 py-3 max-w-md">
+                            <p class="text-sm mb-2">Great question! Here are some excellent seafood restaurants in Port Said:</p>
+                            <ul class="text-sm space-y-1 text-muted-foreground">
+                                <li>• <strong>El Borsa Restaurant</strong> - Famous for fresh fish and Mediterranean flavors</li>
+                                <li>• <strong>Fish Market Restaurant</strong> - Traditional Egyptian seafood dishes</li>
+                                <li>• <strong>Maxim Restaurant</strong> - Upscale dining with harbor views</li>
+                            </ul>
+                            <p class="text-sm mt-2">Would you like more details about any of these restaurants or their specialties?</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example Prompts -->
+                <div class="px-6 py-4 bg-muted/50 border-t border-border">
+                    <p class="text-sm text-muted-foreground mb-3">Try asking about:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="example-prompt bg-secondary/20 text-secondary-foreground text-sm px-3 py-1 rounded-full hover:bg-secondary/30 transition-colors" 
+                                data-prompt="What are the best seafood restaurants in Port Said?">
+                            🍤 Best seafood restaurants
+                        </button>
+                        <button class="example-prompt bg-accent/20 text-accent-foreground text-sm px-3 py-1 rounded-full hover:bg-accent/30 transition-colors"
+                                data-prompt="Tell me about Ferial Park">
+                            🌳 Tell me about Ferial Park
+                        </button>
+                        <button class="example-prompt bg-primary/20 text-primary-foreground text-sm px-3 py-1 rounded-full hover:bg-primary/30 transition-colors"
+                                data-prompt="What historical sites should I visit?">
+                            🏛️ Historical sites to visit
+                        </button>
+                        <button class="example-prompt bg-secondary/20 text-secondary-foreground text-sm px-3 py-1 rounded-full hover:bg-secondary/30 transition-colors"
+                                data-prompt="Plan a 2-day itinerary for Port Said">
+                            📅 Plan a 2-day itinerary
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Chat Input -->
+                <div class="p-6 border-t border-border">
+                    <div class="flex space-x-3">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Ask me anything about Port Said..."
+                            class="flex-1 px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            data-implementation="Connect to Gemini API with key: AIzaSyAwerw8ya9G6jdUwx8rRDluz9GQfkLENw8"
+                        />
+                        <button 
+                            id="sendButton"
+                            class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                            data-event="click:handleSendMessage"
+                        >
+                            <span>Send</span>
+                            <i class="fas fa-paper-plane text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Disclaimer -->
+            <p class="text-sm text-muted-foreground text-center mt-4">
+                <i class="fas fa-shield-alt mr-1"></i>
+                All conversations are handled securely and confidentially. Our AI provides information and recommendations only.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Frequently Asked Questions About Egy Safary AI</h2>
+                <p class="text-xl text-muted-foreground">
+                    Everything you need to know about your AI travel assistant.
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-card rounded-lg border border-border overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center hover:bg-muted/30 transition-colors" data-target="faq1">
+                        <h3 class="font-semibold text-lg">Is the AI available 24/7?</h3>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq1" class="faq-content hidden px-6 pb-5">
+                        <p class="text-muted-foreground leading-relaxed">
+                            Yes, our AI assistant is available around the clock to help you plan your perfect Port Said adventure. Whether you're planning months ahead or need immediate assistance during your trip, we're always here for you.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-card rounded-lg border border-border overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center hover:bg-muted/30 transition-colors" data-target="faq2">
+                        <h3 class="font-semibold text-lg">Can the AI book tours for me?</h3>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq2" class="faq-content hidden px-6 pb-5">
+                        <p class="text-muted-foreground leading-relaxed">
+                            Currently, the AI provides comprehensive information and recommendations to help you choose the perfect tours and experiences. For actual booking, our AI will direct you to the relevant section of our website where you can complete your reservation securely.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-card rounded-lg border border-border overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center hover:bg-muted/30 transition-colors" data-target="faq3">
+                        <h3 class="font-semibold text-lg">Is my conversation with the AI private?</h3>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq3" class="faq-content hidden px-6 pb-5">
+                        <p class="text-muted-foreground leading-relaxed">
+                            We prioritize your privacy and security. All interactions with our AI are handled securely and confidentially. Your conversations help improve our service, but personal information is never shared with third parties without your consent.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-card rounded-lg border border-border overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center hover:bg-muted/30 transition-colors" data-target="faq4">
+                        <h3 class="font-semibold text-lg">How accurate is the information provided by the AI?</h3>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq4" class="faq-content hidden px-6 pb-5">
+                        <p class="text-muted-foreground leading-relaxed">
+                            Our AI is trained on comprehensive, up-to-date information about Port Said and continuously learns from interactions. While we strive for accuracy, we always recommend verifying important details like opening hours, prices, and availability before your visit.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-card rounded-lg border border-border overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center hover:bg-muted/30 transition-colors" data-target="faq5">
+                        <h3 class="font-semibold text-lg">What languages does the AI support?</h3>
+                        <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq5" class="faq-content hidden px-6 pb-5">
+                        <p class="text-muted-foreground leading-relaxed">
+                            Our AI supports multiple languages including English, Arabic, French, German, Spanish, and Italian. You can communicate in your preferred language for a more comfortable and personalized travel planning experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Explore Port Said?</h2>
+            <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
+                While our AI is here to assist with information and recommendations, don't forget to explore the full range of tours, places, and packages available on the main Egy Safary website.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                    href="https://egy-safary.odoo.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 shadow-lg inline-flex items-center justify-center space-x-2"
+                >
+                    <span>Visit Egy Safary Website</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#chat" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center space-x-2">
+                    <span>Chat with AI Again</span>
+                    <i class="fas fa-comment"></i>
+                </a>
+            </div>
+            
+            <!-- Travel statistics or testimonials could go here -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold mb-2">10,000+</div>
+                    <div class="text-white/80">Happy Travelers</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold mb-2">50+</div>
+                    <div class="text-white/80">Tour Options</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold mb-2">24/7</div>
+                    <div class="text-white/80">AI Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-compass text-2xl text-primary mr-3"></i>
+                        <span class="text-xl font-bold">Egy Safary AI</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4 max-w-md">
+                        Your intelligent travel companion for discovering the wonders of Port Said, Egypt. Powered by advanced AI technology for personalized travel experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#features" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#technology" class="hover:text-primary transition-colors">Technology</a></li>
+                        <li><a href="#chat" class="hover:text-primary transition-colors">Chat with AI</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="https://egy-safary.odoo.com" target="_blank" class="hover:text-primary transition-colors">Main Website</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 Egy Safary AI. All rights reserved. Powered by Google Gemini AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // FAQ Toggle Functionality
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const target = document.getElementById(this.dataset.target);
+                    const icon = this.querySelector('i');
+                    
+                    if (target.classList.contains('hidden')) {
+                        target.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        target.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+            
+            // Example Prompt Buttons
+            document.querySelectorAll('.example-prompt').forEach(button => {
+                button.addEventListener('click', function() {
+                    const prompt = this.dataset.prompt;
+                    const chatInput = document.getElementById('chatInput');
+                    chatInput.value = prompt;
+                    chatInput.focus();
+                });
+            });
+            
+            // Mock Chat Functionality (for demonstration)
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendButton');
+            
+            function addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message flex items-start space-x-3 ${isUser ? 'justify-end' : ''}`;
+                
+                messageDiv.innerHTML = `
+                    ${isUser ? '' : `
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-robot text-primary text-sm"></i>
+                        </div>
+                    `}
+                    <div class="bg-${isUser ? 'primary text-primary-foreground' : 'muted'} rounded-lg px-4 py-3 max-w-md">
+                        <p class="text-sm">${content}</p>
+                    </div>
+                    ${isUser ? `
+                        <div class="w-8 h-8 bg-secondary/30 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user text-secondary-foreground text-sm"></i>
+                        </div>
+                    ` : ''}
+                `;
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function handleSendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Show typing indicator
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator flex items-start space-x-3';
+                typingDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-primary text-sm"></i>
+                    </div>
+                    <div class="bg-muted rounded-lg px-4 py-3">
+                        <p class="text-sm">AI is typing...</p>
+                    </div>
+                `;
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate AI response after delay
+                setTimeout(() => {
+                    chatMessages.removeChild(typingDiv);
+                    const responses = [
+                        "I'd be happy to help you with that! Let me provide you with some great recommendations for your Port Said adventure.",
+                        "That's an excellent question! Port Said has so much to offer. Here are some suggestions tailored just for you.",
+                        "I can definitely help you with that. Based on my knowledge of Port Said, here's what I recommend:",
+                        "Great choice! Port Said is a fascinating destination. Let me share some insider tips with you."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage(randomResponse);
+                }, 2000);
+                
+                // TODO: Implement actual Gemini API integration
+                // This would involve:
+                // 1. Making an API call to Google Gemini with the API key: AIzaSyAwerw8ya9G6jdUwx8rRDluz9GQfkLENw8
+                // 2. Processing the response and displaying it in the chat
+                // 3. Handling errors and edge cases
+                // 4. Maintaining conversation context
+            }
+            
+            sendButton.addEventListener('click', handleSendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSendMessage();
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
